@@ -20,8 +20,8 @@ class Filters extends BaseConfig
 	// Always applied before every request
 	public $globals = [
 		'before' => [
-			'honeypot',
-			'login'
+			// 'honeypot',
+			// 'login'
 			// 'csrf',
 		],
 		'after'  => [
