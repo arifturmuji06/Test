@@ -14,7 +14,7 @@ class Auth extends BaseConfig
     //
     // i.e. $defaultUserGroup = 'guests';
     //
-    public $defaultUserGroup;
+    public $defaultUserGroup = 'user';
 
     //--------------------------------------------------------------------
     // Libraries
@@ -29,8 +29,10 @@ class Auth extends BaseConfig
     //--------------------------------------------------------------------
 
     public $views = [
-        'login' => 'Myth\Auth\Views\login',
-        'register' => 'Myth\Auth\Views\register',
+        // 'login' => 'Myth\Auth\Views\login',
+        // 'register' => 'Myth\Auth\Views\register',
+        'login' => '\App\Views\Auth\login',
+        'register' => '\App\Views\Auth\register',
         'forgot' => 'Myth\Auth\Views\forgot',
         'reset' => 'Myth\Auth\Views\reset',
         'emailForgot' => 'Myth\Auth\Views\emails\forgot',

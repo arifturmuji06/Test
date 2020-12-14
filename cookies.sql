@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2020 at 12:59 PM
+-- Generation Time: Dec 14, 2020 at 04:39 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -47,6 +47,14 @@ CREATE TABLE `auth_groups` (
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `auth_groups`
+--
+
+INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Site Administrator'),
+(2, 'user', 'Regular User');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +66,15 @@ CREATE TABLE `auth_groups_permissions` (
   `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `auth_groups_permissions`
+--
+
+INSERT INTO `auth_groups_permissions` (`group_id`, `permission_id`) VALUES
+(1, 1),
+(1, 2),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +85,16 @@ CREATE TABLE `auth_groups_users` (
   `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_groups_users`
+--
+
+INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
+(1, 1),
+(1, 5),
+(2, 2),
+(2, 4);
 
 -- --------------------------------------------------------
 
@@ -89,11 +116,35 @@ CREATE TABLE `auth_logins` (
 --
 
 INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
-(1, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 02:44:52', 1),
-(2, '::1', 'arifturmuji', NULL, '2020-12-13 02:47:20', 0),
-(3, '::1', 'arifturmuji', 1, '2020-12-13 02:54:00', 0),
-(4, '::1', 'arifturmuji', 1, '2020-12-13 02:55:33', 0),
-(5, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 04:17:46', 1);
+(1, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 12:47:01', 1),
+(2, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 13:03:20', 1),
+(3, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 13:06:13', 1),
+(4, '::1', 'arthurmuji@gmail.com', 2, '2020-12-13 13:13:20', 1),
+(5, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 13:19:43', 1),
+(6, '::1', 'arthurmuji@gmail.com', 2, '2020-12-13 13:23:41', 1),
+(7, '::1', 'arthurmuji@gmail.com', 2, '2020-12-13 13:25:22', 1),
+(8, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 13:29:41', 1),
+(9, '::1', 'arthurmuji@gmail.com', 2, '2020-12-13 13:32:38', 1),
+(10, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 13:35:28', 1),
+(11, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-13 21:41:54', 1),
+(12, '::1', 'narranaquila@gmail.com', 3, '2020-12-14 09:13:02', 1),
+(13, '::1', 'narranaquila@gmail.com', 3, '2020-12-14 09:21:41', 1),
+(14, '::1', 'test2', NULL, '2020-12-14 09:22:54', 0),
+(15, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:25:16', 1),
+(16, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:25:35', 1),
+(17, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:26:18', 1),
+(18, '::1', 'u', NULL, '2020-12-14 09:26:59', 0),
+(19, '::1', 'arthurmuji@gmail.com', 2, '2020-12-14 09:27:06', 1),
+(20, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:27:21', 1),
+(21, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:29:29', 1),
+(22, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:30:25', 1),
+(23, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:31:07', 1),
+(24, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:31:50', 1),
+(25, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:32:03', 1),
+(26, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-14 09:32:27', 1),
+(27, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:33:06', 1),
+(28, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:38:29', 1),
+(29, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:38:48', 1);
 
 -- --------------------------------------------------------
 
@@ -106,6 +157,15 @@ CREATE TABLE `auth_permissions` (
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_permissions`
+--
+
+INSERT INTO `auth_permissions` (`id`, `name`, `description`) VALUES
+(1, 'manage-user', 'Manage All User'),
+(2, 'manage-profile', 'Manage User\'s Profile'),
+(3, 'manage-recipe', 'Manage user\'s Recipe');
 
 -- --------------------------------------------------------
 
@@ -121,13 +181,6 @@ CREATE TABLE `auth_reset_attempts` (
   `token` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `auth_reset_attempts`
---
-
-INSERT INTO `auth_reset_attempts` (`id`, `email`, `ip_address`, `user_agent`, `token`, `created_at`) VALUES
-(1, 'arifturmuji316@gmail.com', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', '951a110563e3e75aedc720705302b603', '2020-12-13 02:55:22');
 
 -- --------------------------------------------------------
 
@@ -175,7 +228,7 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1607848058, 1);
+(1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1607880465, 1);
 
 -- --------------------------------------------------------
 
@@ -187,6 +240,8 @@ CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(30) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `user_image` varchar(255) NOT NULL DEFAULT 'default.svg',
   `password_hash` varchar(255) NOT NULL,
   `reset_hash` varchar(255) DEFAULT NULL,
   `reset_at` datetime DEFAULT NULL,
@@ -205,8 +260,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'arifturmuji316@gmail.com', 'arifturmuji', '$2y$10$HIaXoZ4akklGhiHHS7PTwOOVCDn96Lj1iRX67TyLGwLJnoL4Tn53K', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 04:17:38', '2020-12-13 04:17:38', NULL);
+INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'arifturmuji316@gmail.com', 'arifturmuji', NULL, 'default.svg', '$2y$10$R017RaZebl7jXZcXpiEKjekC.q2AFSlolPDKyPUbizUsn2vqRgRrS', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 12:40:06', '2020-12-13 12:40:06', NULL),
+(2, 'arthurmuji@gmail.com', 'ujangarthur', NULL, 'default.svg', '$2y$10$4HvHiWmlIkl1JhIXnxzO5.19/9LaNzgRJJ6ycS0o1yTgmptRhiG2G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 13:13:07', '2020-12-13 13:13:07', NULL),
+(4, 'abah@mail.unpas.ac.id', 'test3', NULL, 'default.svg', '$2y$10$AvLO8fClabGNi4rzs/OKw.VYU5RtV6TewU7.jShBpHhtpOaeYssiW', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-14 09:23:10', '2020-12-14 09:23:10', NULL),
+(5, 'jemy@mail.unpas.ac.id', 'jemi', NULL, 'default.svg', '$2y$10$/a0YRzKRapoOPB.5aAdwVOmu9hezdfB2ltuyhlvudSxJl8N7Eem.O', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-14 09:29:14', '2020-12-14 09:29:14', NULL);
 
 --
 -- Indexes for dumped tables
@@ -301,25 +359,25 @@ ALTER TABLE `auth_activation_attempts`
 -- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `auth_tokens`
@@ -337,7 +395,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
