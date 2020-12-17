@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2020 at 04:39 PM
+-- Generation Time: Dec 17, 2020 at 06:04 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -85,16 +85,6 @@ CREATE TABLE `auth_groups_users` (
   `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `auth_groups_users`
---
-
-INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1),
-(1, 5),
-(2, 2),
-(2, 4);
 
 -- --------------------------------------------------------
 
@@ -233,6 +223,22 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `recipe_id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `serving` varchar(50) DEFAULT NULL,
+  `duration` varchar(50) DEFAULT NULL,
+  `ingredients` varchar(512) NOT NULL,
+  `steps` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -252,19 +258,11 @@ CREATE TABLE `users` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `force_pass_reset` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `about` varchar(255) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'arifturmuji316@gmail.com', 'arifturmuji', NULL, 'default.svg', '$2y$10$R017RaZebl7jXZcXpiEKjekC.q2AFSlolPDKyPUbizUsn2vqRgRrS', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 12:40:06', '2020-12-13 12:40:06', NULL),
-(2, 'arthurmuji@gmail.com', 'ujangarthur', NULL, 'default.svg', '$2y$10$4HvHiWmlIkl1JhIXnxzO5.19/9LaNzgRJJ6ycS0o1yTgmptRhiG2G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 13:13:07', '2020-12-13 13:13:07', NULL),
-(4, 'abah@mail.unpas.ac.id', 'test3', NULL, 'default.svg', '$2y$10$AvLO8fClabGNi4rzs/OKw.VYU5RtV6TewU7.jShBpHhtpOaeYssiW', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-14 09:23:10', '2020-12-14 09:23:10', NULL),
-(5, 'jemy@mail.unpas.ac.id', 'jemi', NULL, 'default.svg', '$2y$10$/a0YRzKRapoOPB.5aAdwVOmu9hezdfB2ltuyhlvudSxJl8N7Eem.O', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-14 09:29:14', '2020-12-14 09:29:14', NULL);
 
 --
 -- Indexes for dumped tables
@@ -336,6 +334,13 @@ ALTER TABLE `auth_users_permissions`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`recipe_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `users`
@@ -427,6 +432,12 @@ ALTER TABLE `auth_tokens`
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_id_recipes` FOREIGN KEY (`id`) REFERENCES `recipes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
