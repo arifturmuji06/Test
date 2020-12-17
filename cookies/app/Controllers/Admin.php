@@ -7,7 +7,9 @@ class Admin extends BaseController
     public function index()
     {
         $data['title'] = 'User List';
-        return view('admin/index');
+        $users = new \Myth\Auth\Models\UserModel();
+        $data['users'] = $users->findAll();
+        return view('admin/index', $data);
     }
 
     //--------------------------------------------------------------------
