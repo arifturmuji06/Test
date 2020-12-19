@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2020 at 06:04 AM
+-- Generation Time: Dec 19, 2020 at 12:58 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -233,7 +233,8 @@ CREATE TABLE `recipes` (
   `serving` varchar(50) DEFAULT NULL,
   `duration` varchar(50) DEFAULT NULL,
   `ingredients` varchar(512) NOT NULL,
-  `steps` varchar(512) NOT NULL
+  `steps` varchar(512) NOT NULL,
+  `slug` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -258,10 +259,13 @@ CREATE TABLE `users` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `force_pass_reset` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
+  `addres` varchar(255) DEFAULT NULL,
   `about` varchar(255) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL
+  `deleted_at` datetime DEFAULT NULL,
+  `lat` varchar(512) NOT NULL,
+  `long` varchar(512) NOT NULL,
+  `phone` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
