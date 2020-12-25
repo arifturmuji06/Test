@@ -4,10 +4,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">User Page</h1>
+    <h1 class="h3 mb-4 text-gray-800">Recipe Page</h1>
 
-    <!-- User Detail -->
-    <h2 class="h3 mb-4 text-gray-800">User Detail</h2>
+
+    <!-- Detail resep yang butuh approval -->
+    <h2 class="h3 mb-4 text-gray-800">Detail Recipe</h2>
+
 
 </div>
 <?= $this->endSection(); ?>

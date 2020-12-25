@@ -20,9 +20,14 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin'); ?>">
+            <a class="nav-link" href="<?= base_url('admin'); ?>/user">
                 <i class="fas fa-users"></i>
                 <span>User List</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin'); ?>/resep">
+                <i class="fas fa-users"></i>
+                <span>Resep List</span></a>
         </li>
     <?php endif; ?>
 
@@ -43,9 +48,16 @@
 
     <!-- Nav Item - Edit Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('user'); ?>/edit">
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
+    </li>
+
+    <!-- Nav Item - List Resep -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user'); ?>/resep">
+            <i class="fas fa-user-edit"></i>
+            <span>My Recipe</span></a>
     </li>
 
     <!-- Divider -->

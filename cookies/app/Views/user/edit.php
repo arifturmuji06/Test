@@ -4,10 +4,10 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">User Page</h1>
+    <h1 class="h3 mb-4 text-gray-800">Edit User</h1>
 
-    <!-- User Detail -->
-    <h2 class="h3 mb-4 text-gray-800">User Detail</h2>
+    <!-- Form -->
+    <h2 class="h3 mb-4 text-gray-800">Form Edit User</h2>
 
 </div>
 <?= $this->endSection(); ?>

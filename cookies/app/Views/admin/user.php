@@ -6,8 +6,9 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">User Page</h1>
 
-    <!-- User Detail -->
-    <h2 class="h3 mb-4 text-gray-800">User Detail</h2>
+    <!-- Tabel list user -->
+    <h2 class="h3 mb-4 text-gray-800">User List</h2>
+
 
 </div>
 <?= $this->endSection(); ?>

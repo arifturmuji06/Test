@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2020 at 04:39 PM
+-- Generation Time: Dec 25, 2020 at 07:20 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -66,15 +66,6 @@ CREATE TABLE `auth_groups_permissions` (
   `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `auth_groups_permissions`
---
-
-INSERT INTO `auth_groups_permissions` (`group_id`, `permission_id`) VALUES
-(1, 1),
-(1, 2),
-(2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -91,10 +82,8 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1),
-(1, 5),
-(2, 2),
-(2, 4);
+(1, 6),
+(2, 7);
 
 -- --------------------------------------------------------
 
@@ -144,7 +133,33 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (26, '::1', 'arifturmuji316@gmail.com', 1, '2020-12-14 09:32:27', 1),
 (27, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:33:06', 1),
 (28, '::1', 'jemy@mail.unpas.ac.id', 5, '2020-12-14 09:38:29', 1),
-(29, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:38:48', 1);
+(29, '::1', 'abah@mail.unpas.ac.id', 4, '2020-12-14 09:38:48', 1),
+(30, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-20 09:40:13', 1),
+(31, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-20 09:40:44', 1),
+(32, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-20 09:41:05', 1),
+(33, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-20 09:41:41', 1),
+(34, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-20 09:42:01', 1),
+(35, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-20 21:44:12', 1),
+(36, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-20 21:45:01', 1),
+(37, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 02:44:19', 1),
+(38, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-21 03:00:47', 1),
+(39, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-21 03:01:08', 1),
+(40, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-21 03:01:22', 1),
+(41, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 03:09:12', 1),
+(42, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 03:09:29', 1),
+(43, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 03:09:49', 1),
+(44, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 03:10:07', 1),
+(45, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-21 03:13:44', 1),
+(46, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 03:19:55', 1),
+(47, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-21 03:40:14', 1),
+(48, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-21 06:08:55', 1),
+(49, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-23 05:20:41', 1),
+(50, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-23 16:18:34', 1),
+(51, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-24 23:52:45', 1),
+(52, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-25 00:04:20', 1),
+(53, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-25 00:06:32', 1),
+(54, '::1', 'turmuji.183040006@mail.unpas.ac.id', 7, '2020-12-25 00:09:30', 1),
+(55, '::1', 'arifturmuji316@gmail.com', 6, '2020-12-25 00:10:41', 1);
 
 -- --------------------------------------------------------
 
@@ -210,6 +225,19 @@ CREATE TABLE `auth_users_permissions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `recipe_id` int(11) NOT NULL,
+  `comment_content` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -233,6 +261,38 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `recipe_id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `recipe_image` varchar(255) NOT NULL,
+  `serving` varchar(50) DEFAULT NULL,
+  `duration` varchar(50) DEFAULT NULL,
+  `ingredients` varchar(512) NOT NULL,
+  `steps` varchar(512) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `status_resep` varchar(30) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `recipes`
+--
+
+INSERT INTO `recipes` (`recipe_id`, `id`, `title`, `recipe_image`, `serving`, `duration`, `ingredients`, `steps`, `slug`, `status_resep`, `created_at`, `updated_at`) VALUES
+(1, 6, 'cimin', '', '2', '30', 'telor', 'goreng teelor', 'cimin', 'approve', NULL, '2020-12-21 03:20:12'),
+(2, 6, 'cimin', '', '2', '30', 'telor', 'goreng teelor', 'cimin', 'approve', NULL, '2020-12-21 03:20:12'),
+(4, 6, 'bakso', '', '1', '50', 'baso + mie', 'goreng teelor', 'bakso', 'approve', '2020-12-21 03:39:43', '2020-12-21 03:39:43'),
+(5, 7, 'mie ayam', '', '2', '50', 'baso + mie', 'rebus baso + rebus mie + sajikan', 'mie-ayam', 'approve', '2020-12-21 03:40:52', '2020-12-21 03:40:52'),
+(6, 7, 'mie ayam', '', '2', '50', 'baso + mie', 'rebus baso + rebus mie + sajikan', 'mie-ayam', '', '2020-12-21 03:40:52', '2020-12-21 03:40:52');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -252,19 +312,23 @@ CREATE TABLE `users` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `force_pass_reset` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime DEFAULT NULL,
+  `addres` varchar(255) DEFAULT NULL,
+  `about` varchar(255) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL
+  `deleted_at` datetime DEFAULT NULL,
+  `lat` varchar(512) NOT NULL,
+  `long` varchar(512) NOT NULL,
+  `phone` varchar(13) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'arifturmuji316@gmail.com', 'arifturmuji', NULL, 'default.svg', '$2y$10$R017RaZebl7jXZcXpiEKjekC.q2AFSlolPDKyPUbizUsn2vqRgRrS', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 12:40:06', '2020-12-13 12:40:06', NULL),
-(2, 'arthurmuji@gmail.com', 'ujangarthur', NULL, 'default.svg', '$2y$10$4HvHiWmlIkl1JhIXnxzO5.19/9LaNzgRJJ6ycS0o1yTgmptRhiG2G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-13 13:13:07', '2020-12-13 13:13:07', NULL),
-(4, 'abah@mail.unpas.ac.id', 'test3', NULL, 'default.svg', '$2y$10$AvLO8fClabGNi4rzs/OKw.VYU5RtV6TewU7.jShBpHhtpOaeYssiW', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-14 09:23:10', '2020-12-14 09:23:10', NULL),
-(5, 'jemy@mail.unpas.ac.id', 'jemi', NULL, 'default.svg', '$2y$10$/a0YRzKRapoOPB.5aAdwVOmu9hezdfB2ltuyhlvudSxJl8N7Eem.O', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-14 09:29:14', '2020-12-14 09:29:14', NULL);
+INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `addres`, `about`, `updated_at`, `deleted_at`, `lat`, `long`, `phone`, `slug`) VALUES
+(6, 'arifturmuji316@gmail.com', 'arifturmuji', NULL, 'default.svg', '$2y$10$yNbFvxCXIPlmhANtFMnNnOUOB.QWyCY.k5/gibbBKdLRbBz8VYQvy', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-20 09:35:42', NULL, NULL, '2020-12-20 09:35:42', NULL, '', '', '', NULL),
+(7, 'turmuji.183040006@mail.unpas.ac.id', 'ujangarthur', NULL, 'default.svg', '$2y$10$YQn26ws3mA71GRUNNosbYuQN0xrE4ojreUAHHkkL9kGiWeGRJR80e', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-20 09:36:08', NULL, NULL, '2020-12-20 09:36:08', NULL, '', '', '', NULL);
 
 --
 -- Indexes for dumped tables
@@ -332,10 +396,25 @@ ALTER TABLE `auth_users_permissions`
   ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `id` (`id`,`recipe_id`),
+  ADD KEY `recipe_id` (`recipe_id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`recipe_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `users`
@@ -365,7 +444,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -386,16 +465,28 @@ ALTER TABLE `auth_tokens`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `recipes`
+--
+ALTER TABLE `recipes`
+  MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -427,6 +518,19 @@ ALTER TABLE `auth_tokens`
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `recipes`
+--
+ALTER TABLE `recipes`
+  ADD CONSTRAINT `recipes_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

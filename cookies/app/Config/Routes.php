@@ -31,10 +31,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'User::index');
+$routes->get('/', 'Recipe::index');
+
+
+$routes->get('/recipe/create', 'Recipe::create');
 
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
+
+$routes->get('/recipe/(:any)', 'Recipe::detail/$1');
 
 
 
