@@ -296,13 +296,13 @@ footer p i {
 
   .gambar {
     height: 400px;
-    width: 650px;
+    width: auto;
     overflow: hidden;
   }
 
   .card-img {
     height: auto;
-    width: 650px;
+    width: auto;
   }
 
   .img-profil {
