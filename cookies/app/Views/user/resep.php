@@ -17,26 +17,33 @@
 
     <!-- Tabel list resep yang sudah live -->
     <h2 class="h3 mb-4 text-gray-800">List Resep</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Serving</th>
-                <th scope="col">Duration</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Nasi Goreng</td>
-                <td>1 Porsi</td>
-                <td>1 Hari</td>
+    <div class="col-lg-8">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
 
-            </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Nasi Goreng</td>
+                        <td>1 Porsi</td>
+                        <td><button type="button" class="btn btn-success">Edit</button>
+                            <button type="button" class="btn btn-danger">Delete</button></td>
+
+                    </tr>
 
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 <?= $this->endSection(); ?>
