@@ -18,6 +18,7 @@
 
             <li class="list-group-item">Email</li>
             <li class="list-group-item">Alamat</li>
+            <li class="list-group-item">Phone</li>
 
         </ul>
         <div class="card-body">
@@ -27,4 +28,5 @@
             <td><button type="button" class="btn btn-danger">Delete</button></td>
 
         </div>
-        <?= $this->endSection(); ?>
+    </div>
+    <?= $this->endSection(); ?>
