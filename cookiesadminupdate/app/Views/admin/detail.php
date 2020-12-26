@@ -18,6 +18,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Ayam Goreng</h5>
                     <p class="card-text">Ayam goreng homemade</p>
+                    <hr>
+                    <h5>Pembuat:</h5>
+                    <hr>
+                    <h5>Bahan: </h5>
+                    <hr>
+                    <h5>Cara Buat : </h5>
                 </div>
             </div>
         </div>
