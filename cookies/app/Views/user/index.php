@@ -11,17 +11,14 @@
     <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">User Profile</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Nama User</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, perspiciatis provident autem exercitationem doloribus et ipsa non quas quos dignissimos dolor sapiente necessitatibus corrupti natus, quibusdam ducimus culpa perferendis repellendus..</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Nama</li>
+
             <li class="list-group-item">Email</li>
             <li class="list-group-item">Alamat</li>
-            <li class="list-group-item">About</li>
-            <li class="list-group-item">Phonet</li>
-            <li class="list-group-item">Long</li>
-            <li class="list-group-item">Lat</li>
+
         </ul>
         <div class="card-body">
 
