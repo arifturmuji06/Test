@@ -1,0 +1,313 @@
+body {
+  padding-top: 50px;
+}
+
+section {
+  min-height: 600px;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-width {
+  width: 350px;
+}
+
+.form-control {
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: none;
+}
+
+.user {
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+.iklan {
+  background-color: #eee;
+  padding-top: 10px;
+  min-height: 200px;
+  margin-bottom: -60px;
+}
+
+.search {
+  margin-top: 15px;
+}
+
+.home {
+  margin-top: -220px;
+}
+
+#dash {
+  width: 240px;
+  height: 70px;
+  overflow: hidden;
+}
+
+#dash p {
+  padding: 0px;
+  margin: 0;
+}
+
+.content {
+  width: 250px;
+  height: auto;
+  display: inline-block;
+  margin: 5px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.content a {
+  text-decoration: none;
+}
+
+.profil {
+  background-color: rgb(247, 247, 247);
+  border-top: 1px solid rgb(206, 206, 206);
+  border-bottom: 1px solid rgb(206, 206, 206);
+  padding-top: 15px;
+  height: 90px;
+}
+
+.profil img {
+  float: left;
+  margin-right: 10px;
+}
+
+.profil-content {
+  display: inline-block;
+}
+
+.profil-content img {
+  width: 30px;
+  height: 30px;
+}
+
+.img-profil {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.pembuat-content {
+  color: salmon;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.deskripsi-content {
+  color: grey;
+  width: 170px;
+  /* position: absolute; */
+}
+
+.isi-content p {
+  font-size: 14px;
+}
+
+.isi {
+  background-color: #eee;
+  margin-top: 0px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.login {
+  width: 300px;
+  margin: auto;
+}
+
+.login img {
+  text-align: center;
+}
+
+#detail {
+  background-color: rgb(247, 247, 247);
+  padding-top: 15px;
+}
+
+.foto {
+  width: 150px;
+  height: 150px;
+}
+
+.foto img {
+  width: 120px;
+  overflow: hidden;
+}
+
+.pinjam {
+  background-color: white;
+  height: 500px;
+  width: 900px;
+  margin-left: 0px;
+  overflow: hidden;
+}
+
+.deskripsi {
+  height: auto;
+}
+
+.durasi {
+  padding-top: 3px;
+  height: 40px;
+  border-top: 1px solid rgb(206, 206, 206);
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.durasi p {
+  text-align: center;
+}
+
+.porsi {
+  padding-top: 3px;
+  height: 40px;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.porsi p {
+  text-align: center;
+}
+
+.bahan {
+  padding-top: 15px;
+  height: auto;
+}
+
+.bahan-bahan {
+  height: 25px;
+  border-bottom: 1px dashed rgb(206, 206, 206);
+}
+
+.langkah {
+  border-top: 1px solid rgb(206, 206, 206);
+  margin-top: 15px;
+  padding-top: 15px;
+  height: auto;
+}
+
+.nomor {
+  background-color: rgb(160, 160, 160);
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  text-align: center;
+  color: white;
+  float: left;
+  margin-right: 5px;
+}
+
+.langkah-langkah {
+  width: auto;
+  margin-left: 30px;
+}
+
+.tgl-upload {
+  border-top: 1px solid rgb(206, 206, 206);
+  margin-top: 15px;
+  height: auto;
+}
+
+.tgl-upload p {
+  color: grey;
+  text-align: center;
+}
+
+.komentar {
+  border-top: 1px solid rgb(206, 206, 206);
+  margin-top: -15px;
+  padding-top: 15px;
+  height: auto;
+}
+
+.tampil-komentar {
+  width: auto;
+  height: auto;
+}
+
+.isi-komentar {
+  margin-left: 89px;
+  width: auto;
+  height: auto;
+}
+
+a:active {
+  text-decoration: none;
+  border: 0px;
+  -moz-outline-style: none;
+}
+
+a:focus {
+  outline: none;
+  -moz-outline-style: none;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="search"]:focus,
+[type="search"].form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  bottom: 0;
+  background-color: #333;
+  padding-top: 10px;
+}
+
+footer p {
+  color: white;
+  font-size: 1em;
+}
+
+footer p i {
+  color: salmon;
+}
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) {
+  .home {
+    min-height: 150px;
+    padding-bottom: 50px;
+    background-color: #eee;
+    margin-top: 0px !important;
+  }
+
+  .home img {
+    margin-top: 70px;
+    width: auto;
+    height: 150px;
+  }
+
+  #detail {
+    margin-left: 25%;
+    margin-right: 25%;
+    overflow: hidden;
+    background-color: rgb(247, 247, 247);
+    padding-bottom: 50px;
+  }
+
+  .gambar {
+    height: 400px;
+    width: 650px;
+    overflow: hidden;
+  }
+
+  .card-img {
+    height: auto;
+    width: 650px;
+  }
+
+  .img-profil {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+}
