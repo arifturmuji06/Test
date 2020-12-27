@@ -18,6 +18,12 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <style>
+        #map {
+            height: 500px;
+            width: auto;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -96,6 +102,36 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(); ?>/js/sb-admin-2.min.js"></script>
+    <script>
+        function previewImg() {
+            const foto = document.querySelector('#foto');
+            const fotoLabel = document.querySelector('.custom-file-label');
+            const imgPreview = document.querySelector('.img-preview');
+
+            fotoLabel.textContent = foto.files[0].name;
+
+            const filefoto = new FileReader();
+            filefoto.readAsDataURL(foto.files[0]);
+
+            filefoto.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+    </script>
+    <script>
+        function initMap() {
+            var location = {
+                lat: <?= user()->lat; ?>,
+                lng: <?= user()->long; ?>
+            };
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: location
+            });
+        }
+    </script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL8lyE9CjWsPbmyaIslVSCThP_XGgrE3w&callback=initMap"></script> -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL8lyE9CjWsPbmyaIslVSCThP_XGgrE3w&callback=initMap" type="text/javascript"></script>
 
 </body>
 

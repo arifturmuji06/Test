@@ -1,4 +1,6 @@
-<?php namespace Myth\Auth\Models;
+<?php
+
+namespace Myth\Auth\Models;
 
 use CodeIgniter\Model;
 use Myth\Auth\Authorization\GroupModel;
@@ -13,8 +15,7 @@ class UserModel extends Model
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
-        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at',
+        'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash', 'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at', 'fullname', 'user_image', 'addres', 'about', 'lat', 'long', 'phone', 'slug'
     ];
 
     protected $useTimestamps = true;
@@ -111,8 +112,7 @@ class UserModel extends Model
      */
     protected function addToGroup($data)
     {
-        if (is_numeric($this->assignGroup))
-        {
+        if (is_numeric($this->assignGroup)) {
             $groupModel = model(GroupModel::class);
             $groupModel->addUserToGroup($data['id'], $this->assignGroup);
         }
@@ -120,4 +120,12 @@ class UserModel extends Model
         return $data;
     }
 
+    public function getUser($id = false)
+    {
+        if ($id == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    }
 }

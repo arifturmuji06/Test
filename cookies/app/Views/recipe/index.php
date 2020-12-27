@@ -1,71 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('templateshome/index'); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
-</head>
+<?= $this->section('page-content'); ?>
 
-<body>
+<!-- Search & Iklan -->
+<div class="home">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <?php if (logged_in()) : ?>
-                    <a href="/recipe/create" class="btn btn-primary mt-3">Tambah Data Komik</a>
-                <?php else : ?>
-                    <a href="/login" class="btn btn-primary mt-3">Tambah Data Komik</a>
-                <?php endif ?>
+        <div class="d-flex justify-content-center">
+            <img src="/img/cookies.png" class="logo" alt="">
+        </div>
+        <div class="d-flex justify-content-center">
+            <form action="" method="get" class="form-inline" style="margin-top: 20px;">
+                <input class="form-control mr-sm-2" type="search" name="keyword" id="keyword" placeholder="Cari resep/bahan/pengguna ..." aria-label="Search" style="width:500px">
+                <button class="btn" type="submit" name="cari" id="tombol"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
 
-                <h1 class="mt-2">Daftar Komik</h1>
-                <?php //if (session()->getFlashdata('pesan')) : 
-                ?>
-                <!-- <div class="alert alert-success" role="alert"> -->
-                <?php //session()->getFlashdata('pesan'); 
-                ?>
-                <!-- </div> -->
-                <?php //endif; 
-                ?>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">id resep</th>
-                            <th scope="col">id user</th>
-                            <th scope="col">judul</th>
-                            <th scope="col">porsi</th>
-                            <th scope="col">durasi</th>
-                            <th scope="col">bahan</th>
-                            <th scope="col">langkah2</th>
-                            <th scope="col">slug</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ($recipe as $r) : ?>
-                            <?php if ($r['status_resep'] == 'approve') : ?>
-                                <tr>
-                                    <th scope="row"><?= $i++; ?></th>
-                                    <td><?= $r['recipe_id']; ?></td>
-                                    <td><?= $r['id']; ?></td>
-                                    <td><?= $r['title']; ?></td>
-                                    <td><?= $r['serving']; ?></td>
-                                    <td><?= $r['duration']; ?></td>
-                                    <td><?= $r['ingredients']; ?></td>
-                                    <td><?= $r['steps']; ?></td>
-                                    <td><?= $r['slug']; ?></td>
-                                    <td>
-                                        <a href="/recipe/<?= $r['slug']; ?>" class="btn btn-success">Detail</a>
-                                    </td>
-                                </tr>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+    </div>
+</div>
+<!-- Search & Iklan -->
+
+<!-- Slide Foto -->
+<div class="iklan">
+    <div class="container iklan">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/img/iklan1.jpg" class="d-block w-100" alt="..." style="height: 150px;">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/iklan2.jpg" class="d-block w-100" alt="..." style="height: 150px;">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/iklan3.jpg" class="d-block w-100" alt="..." style="height: 150px;">
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
     </div>
-</body>
+</div>
+<!-- Slide Foto -->
 
-</html>
+<!-- Isi -->
+<section class="isi">
+    <div id="container">
+        <div class="container">
+            <!-- Belom Pengulangan -->
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <?php foreach ($recipe as $r) : ?>
+                    <?php if ($r->status_resep == 'approve') : ?>
+                        <div class="col">
+                            <div class="card">
+                                <img src="/img/<?= $r->recipe_image; ?>" class="card-img-top" alt="..." style="margin-bottom: -10px;">
+                                <div class="card-body">
+                                    <a href="" class="judul">
+                                        <h5 class="card-title" style="margin-bottom: 10px;"><?= $r->title; ?></h5>
+                                    </a>
+                                    <div class="d-flex justify-content-center">
+                                        <img src="/img/<?= $r->user_image; ?>" alt="" style="width:30px; height:30px; border-radius:50%;" id="img-profil">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <p class="fw-bold" id="nama"><?= $r->username; ?></p>
+                                    </div>
+                                    <div id="dash">
+                                        <p class="card-text"><?= $r->recipe_desc; ?></p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <i><small class="text-muted">Created at <?= ($r->created); ?></small></i>
+                                </div>
+                                <!-- Buat nge link ke detail -->
+                                <a href="/recipe/<?= $r->recipe_slug; ?>" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            <!-- Batas Pengulangan -->
+        </div>
+    </div>
+</section>
+<!-- Isi -->
+<?= $this->endSection(); ?>

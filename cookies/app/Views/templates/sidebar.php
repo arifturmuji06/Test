@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-cookie-bite"></i>
         </div>
@@ -15,7 +15,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            User Management
+            Website Management
         </div>
 
         <!-- Nav Item - Charts -->
@@ -26,7 +26,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin'); ?>/resep">
-                <i class="fas fa-users"></i>
+                <i class="fas fa-list"></i>
                 <span>Resep List</span></a>
         </li>
     <?php endif; ?>
@@ -36,7 +36,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        User Profile
+        User Management
     </div>
 
     <!-- Nav Item - Charts -->
@@ -48,7 +48,7 @@
 
     <!-- Nav Item - Edit Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('user'); ?>/edit">
+        <a class="nav-link" href="<?= base_url('user'); ?>/edit/<?= user()->id; ?>">
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>
@@ -56,8 +56,15 @@
     <!-- Nav Item - List Resep -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user'); ?>/resep">
-            <i class="fas fa-user-edit"></i>
+            <i class="fas fa-list"></i>
             <span>My Recipe</span></a>
+    </li>
+
+    <!-- Nav Item - Buat Resep -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('recipe'); ?>/create">
+            <i class="fas fa-plus"></i>
+            <span>Create Recipe</span></a>
     </li>
 
     <!-- Divider -->
