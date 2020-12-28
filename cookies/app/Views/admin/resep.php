@@ -107,13 +107,24 @@
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
                                 <td><?= $recipe['title']; ?></td>
-                                <td><?= $recipe['recipe_desc']; ?></td>
+                                <td style="width: 545px;"><?= $recipe['recipe_desc']; ?></td>
                                 <td>
-                                    <form action="/admin/deleteresep" method="post" enctype="multipart/form-data">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" id="recipe_id" class="recipe_id" name="recipe_id" value="<?= $recipe['recipe_id']; ?>">
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>
-                                    </form>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="/recipe/<?= $recipe['slug']; ?>">
+                                                    <button type="submit" class="btn btn-success">Detail</button>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <form action="/admin/deleteresep" method="post" enctype="multipart/form-data">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" id="recipe_id" class="recipe_id" name="recipe_id" value="<?= $recipe['recipe_id']; ?>">
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endif; ?>

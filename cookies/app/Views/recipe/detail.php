@@ -66,7 +66,7 @@
                 <div class="komentar">
                     <h4><i class="fas fa-comment" style="color:  rgb(160, 160, 160);"></i> Komentar</h4>
                     <div class="d-flex justify-content-start" style="margin-top: 10px;">
-                        <img src="/img/tio.jpg" alt="" style="width: 38px; height:38px; border-radius:50%;margin-right:5px;">
+                        <img src="/img/<?= user()->user_image; ?>" alt="" style="width: 38px; height:38px; border-radius:50%;margin-right:5px;">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Tulis disini ..." aria-label="" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -80,7 +80,7 @@
                         <img src="/img/nathan.jpg" alt="" style="width: 38px; height:38px; border-radius:50%;margin-right:5px; float:left;">
                         <div class="isi-komentar">
                             <p><b>NathanielGanteng</b></p>
-                            <p style="margin-top:-20px;color:rgb(160, 160, 160);"><i class="far fa-clock"></i> 100 tahun yang lalu</p>
+                            <p style="margin-top:-20px;color:rgb(160, 160, 160);"><i class="far fa-clock"></i> 5 bulan yang lalu</p>
                             <p style="margin-top: -10px;"><i>"Resep nya mantap buun"</i></p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <img src="/img/tio.jpg" alt="" style="width: 38px; height:38px; border-radius:50%;margin-right:5px; float:left;">
                         <div class="isi-komentar">
                             <p><b>CEO Mangoyovi</b></p>
-                            <p style="margin-top:-20px;color:rgb(160, 160, 160);"><i class="far fa-clock"></i> belom enter woy</p>
+                            <p style="margin-top:-20px;color:rgb(160, 160, 160);"><i class="far fa-clock"></i> 2 bulan yang lalu</p>
                             <p style="margin-top: -10px;"><i>"Mantap buun resep nya mudah di recook"</i></p>
                         </div>
                     </div>
